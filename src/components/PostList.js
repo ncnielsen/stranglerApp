@@ -22,9 +22,9 @@ function PostList()
 
     return (
         <>
-            <NewPost />
+            <NewPost onBodyChange={changeBodyHandler} onAuthorChange={changeAuthorHandler}/>
             <ul className={classes.posts}>
-                <Post author={enteredAuthor} body={enteredBody} onBodyChange={changeBodyHandler} onAuthorChange={changeAuthorHandler} />
+                <Post author={enteredAuthor} body={enteredBody}  />
                 <Post author="Alban Dwellinger" body="Indeed" />
             </ul>
         </>
