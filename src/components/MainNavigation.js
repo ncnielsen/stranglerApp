@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 import classes from './MainNavigation.module.css';
-import NewsletterSignup from './NewsletterSignup';
+import Login from './LoginButton';
 
 function MainNavigation() {
   return (
@@ -16,32 +16,32 @@ function MainNavigation() {
               }
               end
             >
-              Home
+              Account overview
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="/events"
+              to="/actions"
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }
             >
-              Events
+              Suggested Actions
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="/newsletter"
+              to="/options-explorer"
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }
             >
-              Newsletter
+              Options Explorer
             </NavLink>
           </li>
         </ul>
       </nav>
-      <NewsletterSignup />
+      <Login />
     </header>
   );
 }

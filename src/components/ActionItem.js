@@ -1,8 +1,8 @@
 import { Link, useSubmit } from 'react-router-dom';
 
-import classes from './EventItem.module.css';
+import classes from './ActionItem.module.css';
 
-function EventItem({ event }) {
+function ActionItem({ event }) {
   const submit = useSubmit();
 
   function startDeleteHandler() {
@@ -27,4 +27,4 @@ function EventItem({ event }) {
   );
 }
 
-export default EventItem;
+export default ActionItem;

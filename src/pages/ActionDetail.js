@@ -7,29 +7,29 @@ import {
   Await,
 } from 'react-router-dom';
 
-import EventItem from '../components/EventItem';
-import EventsList from '../components/EventsList';
+import ActionItem from '../components/ActionItem';
+import ActionsList from '../components/ActionsList';
 
-function EventDetailPage() {
+function ActionDetailPage() {
   const { event, events } = useRouteLoaderData('event-detail');
 
   return (
     <>
       <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
         <Await resolve={event}>
-          {(loadedEvent) => <EventItem event={loadedEvent} />}
+          {(loadedEvent) => <ActionItem event={loadedEvent} />}
         </Await>
       </Suspense>
       <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
         <Await resolve={events}>
-          {(loadedEvents) => <EventsList events={loadedEvents} />}
+          {(loadedEvents) => <ActionsList events={loadedEvents} />}
         </Await>
       </Suspense>
     </>
   );
 }
 
-export default EventDetailPage;
+export default ActionDetailPage;
 
 async function loadEvent(id) {
   const response = await fetch('http://localhost:8080/events/' + id);
@@ -47,7 +47,7 @@ async function loadEvent(id) {
   }
 }
 
-async function loadEvents() {
+async function loadActions() {
   const response = await fetch('http://localhost:8080/events');
 
   if (!response.ok) {
@@ -72,7 +72,7 @@ export async function loader({ request, params }) {
 
   return defer({
     event: await loadEvent(id),
-    events: loadEvents(),
+    events: loadActions(),
   });
 }
 
@@ -90,5 +90,5 @@ export async function action({ params, request }) {
       }
     );
   }
-  return redirect('/events');
+  return redirect('/actions');
 }

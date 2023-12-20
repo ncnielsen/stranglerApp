@@ -1,15 +1,15 @@
-import NewsletterSignup from '../components/NewsletterSignup';
+import Login from '../components/LoginButton';
 import PageContent from '../components/PageContent';
 
-function NewsletterPage() {
+function OptionsExplorerPage() {
   return (
-    <PageContent title="Join our awesome newsletter!">
-      <NewsletterSignup />
+    <PageContent title="Awesome Options Explorer!">
+      <Login />
     </PageContent>
   );
 }
 
-export default NewsletterPage;
+export default OptionsExplorerPage;
 
 export async function action({ request }) {
   const data = await request.formData();
@@ -17,5 +17,5 @@ export async function action({ request }) {
 
   // send to backend newsletter server ...
   console.log(email);
-  return { message: 'Signup successful!' };
+  return { message: 'Options explored successful!' };
 }
