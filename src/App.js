@@ -12,7 +12,8 @@ import AccountPage from './pages/Account';
 import NewActionPage from './pages/NewAction';
 import RootLayout from './pages/Root';
 import { action as manipulateEventAction } from './components/ActionForm';
-import OptionsExplorerPage, { action as newsletterAction } from './pages/OptionsExplorer';
+import OptionsExplorerPage, { action as optionExplorerAction } from './pages/OptionsExplorer';
+import LoginReceiverPage, { action as loginReceiverAction } from './pages/LoginReceiverPage';
 
 const router = createBrowserRouter([
   {
@@ -57,7 +58,12 @@ const router = createBrowserRouter([
       {
         path: 'options-explorer',
         element: <OptionsExplorerPage />,
-        action: newsletterAction,
+        action: optionExplorerAction,
+      },
+      {
+        path: 'login-receiver',
+        element: <LoginReceiverPage />,
+        action: loginReceiverAction,
       },
     ],
   },
